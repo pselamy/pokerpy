@@ -15,6 +15,4 @@ class TestCardDeck(unittest.TestCase):
         self.deck = Deck(cards=self.cards)
 
     def test_cards(self):
-        expected = self.cards
-        actual = self.deck.cards
-        self.assertCountEqual(expected, actual)
+        self.assertCountEqual(self.cards, self.deck.cards)
