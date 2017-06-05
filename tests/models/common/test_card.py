@@ -1,19 +1,21 @@
 import unittest
+from _ast import Constant
 from random import choice
 
-from pokerpy.common.constant import Constant
 from pokerpy.models.common.card import Card
+from pokerpy.models.common.rank import Rank
+from pokerpy.models.common.suit import Suit
 
 
 class TestCard(unittest.TestCase):
     def setUp(self):
         self.constants = Constant()
-        self.face = choice(list(self.constants.FACES))
-        self.suit = choice(list(self.constants.SUITS))
-        self.card = Card(face=self.face, suit=self.suit)
+        self.rank = choice(list(Rank))
+        self.suit = choice(list(Suit))
+        self.card = Card(rank=self.rank, suit=self.suit)
 
-    def test_face(self):
-        self.assertEquals(self.face, self.card.face)
+    def test_rank(self):
+        self.assertEquals(self.rank, self.card.rank)
 
     def test_suit(self):
         self.assertEquals(self.suit, self.card.suit)
