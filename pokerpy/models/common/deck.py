@@ -1,9 +1,10 @@
-from pokerpy.models.common.card.rank import Rank
-from pokerpy.models.common.card.suit import Suit
+from itertools import product
 
-from pokerpy.models.common import card
+from pokerpy.models.common.card import Card
+from pokerpy.models.common.rank import Rank
+from pokerpy.models.common.suit import Suit
 
 
 class Deck(object):
-    def __init__(self):
-        self.cards = [card.Card(rank=rank, suit=suit) for suit in Suit for rank in Rank]
+    def __init__(self, cards=[Card(rank=rank, suit=suit) for rank, suit in product(Rank, Suit)]):
+        self.cards = cards
