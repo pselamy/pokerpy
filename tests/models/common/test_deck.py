@@ -13,7 +13,7 @@ from pokerpy.models.common.rank import Rank
 from pokerpy.models.common.suit import Suit
 
 
-class TestCardDeck(unittest.TestCase):
+class TestDeck(unittest.TestCase):
     def setUp(self):
         self.cards = [mock(dict(rank=rank, suit=suit), spec=Card, strict=True) for rank, suit in product(Rank, Suit)]
         self.deck = Deck(cards=self.cards)
