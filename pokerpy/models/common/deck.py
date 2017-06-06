@@ -6,3 +6,5 @@ from pokerpy.models.common.suit import Suit
 
 
 class Deck(object):
+    def __init__(self, cards):
+        self.__cards = cards
