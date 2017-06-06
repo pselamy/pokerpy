@@ -1,8 +1,4 @@
-from itertools import product
-
-from pokerpy.models.common.card import Card
-from pokerpy.models.common.rank import Rank
-from pokerpy.models.common.suit import Suit
+import random
 
 
 class Deck(object):
