@@ -1,10 +1,19 @@
-from itertools import product
-
-from pokerpy.models.common.card import Card
-from pokerpy.models.common.rank import Rank
-from pokerpy.models.common.suit import Suit
+import random
 
 
 class Deck(object):
-    def __init__(self, cards=[Card(rank=rank, suit=suit) for rank, suit in product(Rank, Suit)]):
-        self.cards = cards
+    def __init__(self, cards):
+        self.__cards = cards
+
+    def draw_card(self):
+        return next(iter(self.draw_cards(count=1)))
+
+    def draw_cards(self, count):
+        for i in range(count):
+            yield self.__cards.pop()
+
+    def shuffle_cards(self):
+        random.shuffle(self.__cards)
+
+    def sort_cards(self):
+        self.__cards.sort(key=lambda card: (card.suit.value, card.rank.value))
