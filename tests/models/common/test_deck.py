@@ -34,3 +34,7 @@ class TestCardDeck(unittest.TestCase):
         verify(random, times=1).shuffle(self.cards)
         verifyNoMoreInteractions(random)
 
+    def test_sort_cards(self):
+        expected = sorted(self.cards, key=lambda card: (card.suit.value, card.rank.value))
+        self.deck.sort_cards()
+        self.assertEquals(expected, self.cards)

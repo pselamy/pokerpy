@@ -15,3 +15,5 @@ class Deck(object):
     def shuffle_cards(self):
         random.shuffle(self.__cards)
 
+    def sort_cards(self):
+        self.__cards.sort(key=lambda card: (card.suit.value, card.rank.value))
