@@ -12,3 +12,6 @@ class Deck(object):
         for i in range(count):
             yield self.__cards.pop()
 
+    def shuffle_cards(self):
+        random.shuffle(self.__cards)
+

@@ -28,3 +28,9 @@ class TestCardDeck(unittest.TestCase):
         actual = self.deck.draw_cards(count=count)
         self.assertCountEqual(expected, actual)
 
+    def test_shuffle_cards(self):
+        expect(random, strict=True, times=1).shuffle(self.cards)
+        self.deck.shuffle_cards()
+        verify(random, times=1).shuffle(self.cards)
+        verifyNoMoreInteractions(random)
+
