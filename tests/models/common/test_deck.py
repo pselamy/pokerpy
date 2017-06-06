@@ -16,3 +16,11 @@ class TestCardDeck(unittest.TestCase):
 
     def test_cards(self):
         self.assertCountEqual(self.cards, self.deck.cards)
+    def test_draw_card(self):
+        expected = random.choice(self.cards)
+        expect(self.deck, strict=True, times=1).draw_cards(count=1).thenReturn([expected])
+        actual = self.deck.draw_card()
+        self.assertIs(expected, actual)
+        verify(self.deck, times=1).draw_cards(count=1)
+        verifyNoMoreInteractions(self.deck)
+
