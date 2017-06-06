@@ -24,3 +24,9 @@ class TestCardDeck(unittest.TestCase):
         verify(self.deck, times=1).draw_cards(count=1)
         verifyNoMoreInteractions(self.deck)
 
+    def test_draw_cards(self):
+        count = random.randint(1, 5)
+        expected = self.cards[-count:]
+        actual = self.deck.draw_cards(count=count)
+        self.assertCountEqual(expected, actual)
+

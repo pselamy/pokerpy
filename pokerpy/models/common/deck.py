@@ -8,3 +8,7 @@ class Deck(object):
     def draw_card(self):
         return next(iter(self.draw_cards(count=1)))
 
+    def draw_cards(self, count):
+        for i in range(count):
+            yield self.__cards.pop()
+
