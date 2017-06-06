@@ -14,8 +14,6 @@ class TestCardDeck(unittest.TestCase):
         self.cards = [mock(dict(rank=rank, suit=suit), spec=Card, strict=True) for rank, suit in product(Rank, Suit)]
         self.deck = Deck(cards=self.cards)
 
-    def test_cards(self):
-        self.assertCountEqual(self.cards, self.deck.cards)
     def test_draw_card(self):
         expected = random.choice(self.cards)
         expect(self.deck, strict=True, times=1).draw_cards(count=1).thenReturn([expected])
